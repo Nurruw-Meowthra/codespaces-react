@@ -2,12 +2,10 @@ import { useState } from 'react'
 import './ExpenseForm.css'
 
 const ExpenseForm = (props) => {
-    // 1. Create 3 separate states for inputs
     const [enteredTitle, setEnteredTitle] = useState('')
     const [enteredPrice, setEnteredPrice] = useState('')
     const [enteredDate, setEnteredDate] = useState('')
 
-    // 2. Event handlers for typing
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value)
     }
@@ -20,7 +18,6 @@ const ExpenseForm = (props) => {
         setEnteredDate(event.target.value)
     }
 
-    // 3. Form submit handler
     const submitHandler = (event) => {
         event.preventDefault()
 
@@ -30,10 +27,8 @@ const ExpenseForm = (props) => {
             date: new Date(enteredDate)
         }
 
-        // Pass data UP to NewExpense.js via props
         props.onSaveExpenseData(expenseData)
 
-        // Clear input boxes (Two-Way Binding)
         setEnteredTitle('')
         setEnteredPrice('')
         setEnteredDate('')
